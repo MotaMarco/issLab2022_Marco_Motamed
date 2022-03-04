@@ -82,20 +82,21 @@ int main(void) {
         printf("\nConnection Failed \n");
         return -1;
     }
-	int spento=1;
+	int blink=0;
 	while(1) {
-		int tempo=100;
+		int tempo=1000;
 		char buf[32];
  		cm = getCM();
 		send(sock , &cm , sizeof(int) , 0 );
     		printf("Hello message sent\n");
-		if(cm<20){
-                 sprintf(buf,"/home/pi/ledBlink.sh %d &",120);
-                 system(buf);
+		if(cm<20 && blink ==0){
+                system("/home/pi/ledBlink.sh &"  );                
+		blink =1;
                  //system("/home/pi/led25GpioTurnOn.sh");
                 }
                 if(cm>=20){
                  system("/home/pi/led25GpioTurnOff.sh");
+		 blink =0;
                 }
 		printf("DOLGIO\n");
 		cout <<  cm   << endl ;  //flush after ending a new line

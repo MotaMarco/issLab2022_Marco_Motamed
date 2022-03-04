@@ -6,17 +6,21 @@
 #	sudo bash led25GpioTurnOn.sh
 # -------------------------------------------------------------
 #!/bin/bash
-i=0
-tempo=50
-limit=$1
-num=$((limit/tempo))
-i=0
-while [ $i -le $num ]
+#i=0
+#tempo=50
+#limit=$1
+#num=$((limit/tempo))
+
+echo $$ > PidOfBlinkingLed.txt
+
+
+while : #[ $i -le $num ]
 do
 	gpio mode 6 out #
 	gpio write 6 1 #
 	sleep 0.05
 	gpio mode 6 out
 	gpio write 6 0
-	i=$((i+1))
+	#i=$((i+1))
 done
+
