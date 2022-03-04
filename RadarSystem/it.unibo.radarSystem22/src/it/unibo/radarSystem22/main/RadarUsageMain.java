@@ -26,7 +26,7 @@ public void doJob() {
     	 break;
      }
     
-     System.out.println("Ho ricevuto una distanza "+ distanza+" socket : "+clientSocket);
+     System.out.println("Ho ricevuto una distanza  "+ distanza+" socket : "+clientSocket);
      
       radarSupport.update(""+distanza , "0");
     }
