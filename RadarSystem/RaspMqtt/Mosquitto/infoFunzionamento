@@ -1,0 +1,8 @@
+Compilare i file con g++ sonarPub.c -l wiringPi -o sonarPub -lmosquitto
+Attivare il broker con mosquitto -v -p 5000
+far partire il led con ./ledSub localhost 5000
+far partire eclipse 
+far partire sonar ./sonarPub localhost 5000
+far partire controller con ./controllerMqtt localhost 5000 localhost 5000 localhost 5000
+i collegamenti vanno fatti sempre con il broker ed è lui che prende i messaggi che gli arrivano dai 
+publisher e li invia ai subscriver in base al topic inserito da publischer e sub

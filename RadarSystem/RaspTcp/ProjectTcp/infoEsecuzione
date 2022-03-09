@@ -1,0 +1,12 @@
+#!/bin/bash
+Attiva il radar.java su eclipse.
+controller con ip sonar, porta sonar, ip led, porta led, ip radar(pc) porta radar
+controller con 3 socket client per sonar,led,radar
+./controller 127.0.0.1 6667 127.0.0.1 6666 192.168.41.134 6668
+
+ip e porta da cui il server(socket) sonar ascolta per inviare poi cm a controller
+./sonarDistributed 127.0.0.1 6667
+ip e porta del server(socket) led ascolta per ricevere dal controller i cm e attivare o meno un led
+./Led 127.0.0.1 6666
+
+infine su eclipse server socket in ascolto su una porta(6668)
