@@ -210,7 +210,7 @@ Si desidera costruire un'applicazione software capace di:
 <li>(requisito <b>radarGui</b>) mostrare le distanze rilevate da un sensore Sonar <tt>HC-SR04</tt>
  connesso a un RaspberryPi su un display (RadarDisplay) a forma di radar connesso a un PC.
 
-<center><img src="file:///C:/Users/marco/OneDrive/Downloads/Telegram%20Desktop/img/radarDisplay.png" width="10%"></center>
+<center><img src="../img/radarDisplay.png" width="10%"></center>
 </li><li>(requisito <b>ledAlarm</b>) accendere un Led se la distanza rilevata dal Sonar
 è inferiore a un valore limite prefissato denominato <tt>DLIMIT</tt>.
 </li>
@@ -231,16 +231,16 @@ Si desidera costruire un'applicazione software capace di:
 
 <h2>Project</h2>
   <h5>1)collegato hardware necessario (sonar e led)</h5>
-  <h5>2)modifica a file <a href="C:\Users\marco\OneDrive\Desktop\GitHub\issLab2022_Marco_Motamed\RadarSystem\RaspberryClient\sonar.c"> sonar.c</a> e <a href="C:\Users\marco\OneDrive\Desktop\GitHub\issLab2022_Marco_Motamed\RadarSystem\it.unibo.radarSystem22\src\it\unibo\radarSystem22\main\RadarUsageMain.java"> RadarUsageMain.java</a>, implementando socket TCP cliente/servitore</h5>
-  <h5>3)modifica file <a href="C:\Users\marco\OneDrive\Desktop\GitHub\issLab2022_Marco_Motamed\RadarSystem\RaspberryClient\sonar.c"> sonar.c</a> per implementare accensione/spegnimento led, usando i file .sh forniti</h5>
+  <h5>2)modifica a file <a href="..\..\RadarSystem\RaspberryClient\sonar.c"> sonar.c</a> e <a href="..\..\RadarSystem\it.unibo.radarSystem22\src\it\unibo\radarSystem22\main\RadarUsageMain.java"> RadarUsageMain.java</a>, implementando socket TCP cliente/servitore</h5>
+  <h5>3)modifica file <a href="..\..\RadarSystem\RaspberryClient\sonar.c"> sonar.c</a> per implementare accensione/spegnimento led, usando i file .sh forniti</h5>
 <h4>Procollo Tcp</h4>
-  <h5>Sviluppo controller file Controller.c con utilizzo di tre socket client Tcp</h5>
-  <h5>Sviluppo Led.c, sonarDistributed.c,RadarUsageMain.java file con utilizzo socket server</h5>
+  <h5>Sviluppo controller file <a href="..\..\RadarSystem\RaspTcp\ProjectTcp\Controller.c">Controller.c</a> con utilizzo di tre socket client Tcp</h5>
+  <h5>Sviluppo <a href="..\..\RadarSystem\RaspTcp\ProjectTcp\Led.c">Led.c</a>, <a href="..\..\RadarSystem\RaspTcp\ProjectTcp\sonarDistributed.c">sonarDistributed.c</a>,<a href="..\..\RadarSystem\it.unibo.radarSystem22\src\it\unibo\radarSystem22\main\RadarUsageMain.java">RadarUsageMain.java</a> file con utilizzo socket server</h5>
   <h5>Utilizzo delle tre socket del controller per comunicare con il protocollo Tcp con le socket server presenti sul led,sonar,radar</h5>
   <h5>Accensione/spegnimento del Led entro/superata una certa distanza DLIMIT</h5>
 <h4>Protocollo Mqtt</h4>
-  <h5>Sviluppo controller file ControllerMqtt.c</h5>
-  <h5>Sviluppo di LedSub.c,sonarPub.c e "C:\Users\marco\OneDrive\Desktop\GitHub\issLab2022_Marco_Motamed\RadarSystem\it.unibo.radarSystem22\src\it\unibo\radarSystem22\main\MqttSubscriber.java"MqttSubscriber.java</h5>
+  <h5>Sviluppo controller file <a href="..\..\RadarSystem\RaspMqtt\Mosquitto\ControllerMqtt.c">ControllerMqtt.c</a></h5>
+  <h5>Sviluppo di <a href="..\..\RadarSystem\RaspMqtt\Mosquitto\LedSub.c">LedSub.c</a>,<a href="..\..\RadarSystem\RaspMqtt\Mosquitto\sonarPub.c">sonarPub.c</a> e <a href="..\..\RadarSystem\it.unibo.radarSystem22\src\it\unibo\radarSystem22\main\MqttSubscriber.java">MqttSubscriber.java</a></h5>
   <h5>Comunicazione tra i componenti mediante un Broker</h5>
   
   
