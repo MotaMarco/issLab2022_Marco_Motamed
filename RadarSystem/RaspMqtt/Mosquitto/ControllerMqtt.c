@@ -5,6 +5,7 @@
 
 struct mosquitto * mosqPLed;
 struct mosquitto * mosqPRadar;
+struct mosquitto *mosq;
 
 void on_connect(struct mosquitto *mosq, void *obj, int rc) {
 	printf("ID: %d\n", * (int *) obj);
@@ -22,28 +23,17 @@ void on_message(struct mosquitto *mosq, void *obj, const struct mosquitto_messag
 
 }
 
-
-int main(int argc,char **argv) {
-	//struct mosquitto *mosq;
-    //mosq=setup();
-    int port=atoi(argv[2]);
-
-	int portLed=atoi(argv[4]);
-
-	int portRadar=atoi(argv[6]);
-	
-    //listen(mosq,argv[1], port);
-	int rc, id=12;
-
+void setup(){
+	int id=12;
 	mosquitto_lib_init();
-
-	struct mosquitto *mosq;
-
 	mosq = mosquitto_new("subscribe-sonar", true, &id);
 	mosquitto_connect_callback_set(mosq, on_connect);
 	mosquitto_message_callback_set(mosq, on_message);
-	
-	rc = mosquitto_connect(mosq, argv[1], port, 10);
+}
+
+int connect(char *addressBroker,int port){
+	int rc;
+	rc = mosquitto_connect(mosq, addressBroker, port, 10);
 	if(rc) {
 		printf("Could not connect to Broker with return code %d\n", rc);
 		return -1;
@@ -54,7 +44,7 @@ int main(int argc,char **argv) {
 
 	mosqPLed = mosquitto_new("publisher-led", true, NULL);
 
-	rc = mosquitto_connect(mosqPLed, argv[3], portLed, 60);
+	rc = mosquitto_connect(mosqPLed, addressBroker, port, 60);
 	if(rc != 0){
 		printf("Client could not connect to broker! Error Code: %d\n", rc);
 		mosquitto_destroy(mosqPLed);
@@ -65,14 +55,16 @@ int main(int argc,char **argv) {
 	//Controller Pub Java
 	mosqPRadar = mosquitto_new("publisher-radar", true, NULL);
 
-	rc = mosquitto_connect(mosqPRadar, argv[5], portRadar, 60);
+	rc = mosquitto_connect(mosqPRadar, addressBroker, port, 60);
 	if(rc != 0){
 		printf("Client could not connect to broker! Error Code: %d\n", rc);
 		mosquitto_destroy(mosqPRadar);
 		return -1;
 	}
 	printf("PUB Radar: We are now connected to the broker!\n");
-	
+}
+
+void startAndStop(){
 	//continue sub
 	mosquitto_loop_start(mosq);
 	printf("Press Enter to quit...\n");
@@ -91,6 +83,25 @@ int main(int argc,char **argv) {
 
 	//both
 	mosquitto_lib_cleanup();
+}
+
+int main(int argc,char **argv) {
+	//struct mosquitto *mosq;
+    //mosq=setup();
+    int port=atoi(argv[2]);
+
+	
+    //listen(mosq,argv[1], port);
+	int rc, id=12;
+
+	setup();
+	
+	if(connect(argv[1],port)<0){
+		printf("Client could not connect to broker!");
+		return -1;
+	}
+	startAndStop();
+	
 
 	return 0;
 }

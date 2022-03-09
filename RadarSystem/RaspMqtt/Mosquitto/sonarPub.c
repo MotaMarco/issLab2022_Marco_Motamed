@@ -22,6 +22,7 @@
 #define POS_RIGHT 0.24
 #define POS_FORWARD 0.14
 using namespace std;
+struct mosquitto * mosq;
 
 void setup() {
 	//cout << "setUp " << endl;
@@ -52,59 +53,25 @@ int getCM() {
 
 	return distance;
 }
-/*
-struct mosquitto* setupMosq(){
-    struct mosquitto * mosq;
-    mosquitto_lib_init();
-	mosq = mosquitto_new("publisher-sonar", true, NULL);
-    return mosq;
-}*/
 
-/*int publish(struct mosquitto * mosq,char *address,int port,int cm){
-    int rc = mosquitto_connect(mosq, address, port, 60);
-	if(rc != 0){
-		printf("Client could not connect to broker! Error Code: %d\n", rc);
-		mosquitto_destroy(mosq);
-		return -1;
-	}
-	printf("We are now connected to the broker!\n");
-    while(1){
-        char char_arr [100];
-        sprintf(char_arr, "%d", cm);
-	    mosquitto_publish(mosq, NULL, "sonar/t1", 6, char_arr, 0, false);
-        sleep(2);
-    }
-	mosquitto_disconnect(mosq);
-	mosquitto_destroy(mosq);
-
-	mosquitto_lib_cleanup();
-}*/
-
-int main(int argc,char **argv){
+int setupMqtt(char *address,int port){
+	mosquitto_lib_init();
 	int rc;
-	struct mosquitto * mosq;
-	setup();
-	/*
-    mosq=setupMosq();
-
-	int port=atoi(argv[2]);
-    
-    int cm = getCM();
-    publish(mosq,argv[1],port,cm);*/
-    mosquitto_lib_init();
-	int port=atoi(argv[2]);
 	mosq = mosquitto_new("publisher-sonar", true, NULL);
 
-	rc = mosquitto_connect(mosq, argv[1], port, 60);
+	rc = mosquitto_connect(mosq, address, port, 60);
 	if(rc != 0){
 		printf("Client could not connect to broker! Error Code: %d\n", rc);
 		mosquitto_destroy(mosq);
 		return -1;
 	}
 	printf("We are now connected to the broker!\n");
+}
+void send(){
+	int cm;
+	char char_arr [100];
 	while(1){
-		int cm = getCM();
-		char char_arr [100];
+		cm = getCM();
 		sprintf(char_arr, "%d", cm);
 		mosquitto_publish(mosq, NULL, "sonar/t1", 4, char_arr, 0, false);
 		sleep(0.2);
@@ -113,6 +80,16 @@ int main(int argc,char **argv){
 	mosquitto_destroy(mosq);
 
 	mosquitto_lib_cleanup();
+}
+
+int main(int argc,char **argv){
+	int rc;
+	
+	int port=atoi(argv[2]);
+	setup();
+	setupMqtt(argv[1],port);
+    
+	send();
 	
 	return 0;
 }
