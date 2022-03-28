@@ -19,22 +19,22 @@
 			<attribute name="gradle_used_by_scope" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/marco/OneDrive/Desktop/Ingegneria Software M/issLab2022/unibolibs/2p301.jar">
+	<classpathentry kind="lib" path="C:/Users/marco/OneDrive/Desktop/GitHub/issLab2022_Marco_Motamed/RadarSystem/unibolibs/2p301.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/marco/OneDrive/Desktop/Ingegneria Software M/issLab2022/unibolibs/uniboInterfaces.jar">
+	<classpathentry kind="lib" path="C:/Users/marco/OneDrive/Desktop/GitHub/issLab2022_Marco_Motamed/RadarSystem/unibolibs/uniboInterfaces.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/marco/OneDrive/Desktop/Ingegneria Software M/issLab2022/unibolibs/unibonoawtsupports.jar">
+	<classpathentry kind="lib" path="C:/Users/marco/OneDrive/Desktop/GitHub/issLab2022_Marco_Motamed/RadarSystem/unibolibs/unibonoawtsupports.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/marco/OneDrive/Desktop/Ingegneria Software M/issLab2022/unibolibs/radarPojo.jar">
+	<classpathentry kind="lib" path="C:/Users/marco/OneDrive/Desktop/GitHub/issLab2022_Marco_Motamed/RadarSystem/unibolibs/radarPojo.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value=""/>
 		</attributes>
