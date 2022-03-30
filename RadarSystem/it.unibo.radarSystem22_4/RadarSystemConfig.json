@@ -9,5 +9,6 @@
 "serverPort"       : "8023",
 "ledPort"          : "8010",
 "sonarPort"        : "8015",
-"protocolType"      : "udp"
+"ctxServerPort"    : "8756",
+"protocolType"     : "tcp"
 }

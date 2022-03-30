@@ -59,6 +59,7 @@ public class RadarSysSprint3DevicesOnRaspMain implements IApplication{
  
 	}
 	protected void configure() {		
+		//cambiare
 	   ProtocolType protocol = RadarSystemConfig.protcolType;
 	   led                   = DeviceFactory.createLed();
  	   IApplMsgHandler ledh  = LedApplHandler.create("ledh", led);
