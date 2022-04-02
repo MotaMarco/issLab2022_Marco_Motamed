@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Observable;
 
-import it.unibo.radarSystem22.domain.interfaces.IObserver;
+import it.unibo.radarSystem22.domain.interfaces.ISonarObserver;
 import it.unibo.radarSystem22.domain.interfaces.ISonarObservable;
 import it.unibo.radarSystem22.domain.utils.ColorsOut;
 import it.unibo.radarSystem22.domain.utils.DomainSystemConfig;
@@ -12,7 +12,7 @@ import it.unibo.radarSystem22.domain.utils.DomainSystemConfig;
 
 
 @SuppressWarnings("deprecation")
-class SonarObserverFortesting implements IObserver{
+class SonarObserverFortesting implements ISonarObserver{
 	private String name;
 	private boolean oneShot = false;
 	private int v0          = -1;
