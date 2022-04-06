@@ -203,11 +203,12 @@ Modifica del progetto radarSystem22 per realizzare una versione osservabile del 
 
 
 <div class="remark">
-<ul>    
+    Si desidera realizzare una versione osservabile (SonarObservable) del dispositivo Sonar introdotto in Il Sonar che soddisfi i seguenti requisiti:
+    <ul>    
 
     <li> Il SonarObservable deve inviare informazioni a tutti componenti software interessati alla rilevazione dei valori di distanza;</li>
 
-    <li> Il SonarObservable deve fornire valori di distanza solo quando questi si modificano in modo significativo;(ad esempio ogni variazione di una unità)</li>
+    <li> Il SonarObservable deve fornire valori di distanza solo quando questi si modificano in modo significativo;</li>
 
     <li> I componenti interessati ai valori di distanza prodotti dal SonarObservable sono denominati Observer e pssono risiedere sullo stesso nodo del SonarObservable (cioè sul RaspberryPi) o su un nodo remoto (ad esempio sul PC);</li>
 
@@ -221,6 +222,13 @@ Modifica del progetto radarSystem22 per realizzare una versione osservabile del 
         <li>Le interazioni tra il SonarObservable e gli Observer, cioè gli attori interessati alla rilevazione, avvengono tramite un invio di informazioni solo se quest'ultime sono significative</li>
         <li>Un'informazione risulta significativa se differisce dal valore precedentemente rilevato</li>
         <li>Gli Observer possono essere locali al SonarObservable e quindi risiedere nello stesso nodo oppure remoti e risiedere su un nodo diverso</li>
+    </ul>
+    UPDATE LEZIONE 05/04/2022
+    <ul>    
+        <li>Cosa significa osservare un dispositivo? Significa osservare i valori prodotti o il suo stato interno (carica delle batterie, temperatura interna, rate di generazione dei dati, etc.)? Osservare un dispositivo significa osservare i suoi valori prodotti, in questo caso la distanza misurata, e non il suo stato interno</li>
+        <li>Si può dire che il valore della distanza sia una proprietà del dispositivo di misura (cioè del Sonar)?Il valore di distanza non è una proprietà del dispositivo di misura</li>
+        <li>Se siamo convinti che si debbano osservare i valori prodotti pittosto che il dispositivo in sè, come formalizzare questo approccio nel caso del SonarObservable? Attraverso l'utilizzo di una risorsa "DistanceMeasured" osservabile formalizzandola con l'utilizzo di un'interfaccia </li>
+        <li>Cosa si intende per modifiche significative del valore? Modifiche significative consistono in variazioni di valore 1 del valore osservato</li>
     </ul></div>
 </div>
 
@@ -232,13 +240,24 @@ La transizione ad un Sonar osservabile prospettata in Il pattern observer può e
         L'invio di questi valori avviene tramite un metodo update. </li>
     <li>Modo2 Comunicazione mediata: Viene utilizzato un componente mediatore chiamato broker che si interpone tra il SonarObservable e gli Observer permettendo una 
          un maggiore disaccoppiamento tra i componenti. Gli Observer si registrano al Brocker tramite una subscribe. In questo caso è il Broker ad avere la lista degli Observer registrati. Il SonarObserver comunica al broker un nuovo valore significativo(da lui prodotto) tramite una publish e successivamente il broker invierà questo valore agli Observer registrati tramite il metodo update  </li>
-    
+UPDATE LEZIONE 05/04/2022
+<ul>    
+    <li>Modo1 Comunicazione diretta: L'entità DistanceMesuared è un Observable e comunica direttamente con le entità Observer. Gli Observer si registrano all'Observable tramite i metodi addObserver() e removeObserver() dell'entità Observable. Il sonar tramite un metodo setVal del Observable 
+        setterà i nuovi valori registrati indicati con una IDistance.L'Observable avrà una Lista contente l'insieme di Observer registrati e modificherà,solo se i valori registrati sono significativi, le IDistance degli Observer tramite un metodo update(), presente neglio Observer.
+        L'invio di questi valori avviene tramite un metodo update. </li>
+
+    <li>Modo2 Comunicazione mediata: Viene utilizzato un componente mediatore chiamato broker che si interpone tra L'Observable e gli Observer permettendo una 
+         un maggiore disaccoppiamento tra i componenti. Gli Observer si registrano al Brocker tramite i metodi addObserver() e removeObserver(), difatti, è il Broker ad avere la lista degli Observer registrati. L'Observable e quindi l'entità DistanceMesuared comunica al broker un nuovo IDistance significativo tramite una publish e successivamente il broker invierà questo valore agli Observer registrati tramite il metodo update()  </li>
+
 </div>
 
 
 <h2>Test plans</h2>
 <div class="remark">
 il funzionamento del SonarObservable deve essere testato in modo automatizzato ponendo un ostacolo a distanza fissa DTESTING1 davanti ad esso, controllando che tutti gli Observers ricevano il valore DTESTING1. Dopo un qualche tempo, si modifica la posizione dell’ostacolo a una nuova distanza DTESTING2 e si controlla che gli tutti gli Observers ricevano il valore DTESTING2
+<br/>
+UPDATE LEZIONE 05/04/2022
+Verranno affrontati a lezione
 </div>
 <h2>Project</h2>
 <div class="remark">
@@ -246,6 +265,8 @@ il funzionamento del SonarObservable deve essere testato in modo automatizzato p
     <li>Realizzazione classe astratta SonarObservableModel che implementa l'intefaccia ISonar </li>
     <li>Realizzazione classe SonarObservableMock e SonarObservableConcrete </li>
     <li>Realizzazione intefaccia ISonarObserver e SonarObserverModel</li>
+UPDATE LEZIONE 05/04/2022
+Verranno affrontati a lezione
 </div>
 
 <h2>Testing</h2>
@@ -274,7 +295,7 @@ By Marco Motamed email: marco.motamed@studio.unibo.it
 <br/>
 <img src="./radarSystem22_files/Me.jpeg" alt="mbot" width="15%" height="15%">
 <br/>
-Link Githbub:<a href="https://github.com/MotaMarco/issLab2022_Marco_Motamed">HERE</a> 
+Link Github:<a href="https://github.com/MotaMarco/issLab2022_Marco_Motamed">HERE</a> 
 </div>
 
 

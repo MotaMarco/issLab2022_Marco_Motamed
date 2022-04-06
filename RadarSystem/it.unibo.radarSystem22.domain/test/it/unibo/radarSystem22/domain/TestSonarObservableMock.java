@@ -40,11 +40,11 @@ public class TestSonarObservableMock {
 		((SonarObservableMock) observable).setDistance(DTESTING1);
 		
 		assertTrue(observer1.getVal()==DTESTING1);
-		assertTrue(observer1.getVal()==DTESTING1);
+		assertTrue(observer2.getVal()==DTESTING1);
 		
 		((SonarObservableMock) observable).setDistance(DTESTING2);
 		assertTrue(observer1.getVal()==DTESTING2);
-		assertTrue(observer1.getVal()==DTESTING2);
+		assertTrue(observer2.getVal()==DTESTING2);
 		
 		observable.activate();
 		while(observable.isActive()) {BasicUtils.delay(1000);}
