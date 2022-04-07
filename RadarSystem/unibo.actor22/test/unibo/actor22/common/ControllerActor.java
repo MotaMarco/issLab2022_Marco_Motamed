@@ -17,6 +17,7 @@ protected boolean on = true;
 	public ControllerActor(String name  ) {
 		super(name);
 		getStateRequest  = ApplData.buildRequest(name,"ask", ApplData.reqLedState, ApplData.ledName);
+		//getStateRequest  = ApplData.buildRequest(name,"ask", ApplData.reqSonarDistance, ApplData.sonarName);//FOR SONAR
  	}
 
 	@Override
@@ -54,7 +55,8 @@ protected boolean on = true;
     protected void doControllerWork() {
 		CommUtils.aboutThreads(getName()  + " |  Before doControllerWork on=" + on );
 		//wrongBehavior();
-  		//ColorsOut.outappl( getName()  + " | numIter=" + numIter  , ColorsOut.GREEN);		
+  		//ColorsOut.outappl( getName()  + " | numIter=" + numIter  , ColorsOut.GREEN);
+		
 	    if( numIter++ < 5 ) {
 	        if( numIter%2 == 1)  forward( ApplData.turnOnLed ); //accesione
 	        else forward( ApplData.turnOffLed ); //spegnimento
@@ -64,7 +66,7 @@ protected boolean on = true;
 			  //ColorsOut.outappl(getName() + " | emit " + ApplData.endWorkEvent, ColorsOut.MAGENTA);
 	    	  //emit( ApplData.endWorkEvent );
 	      }
-		
+		//PER IL SONAR COMMENTARE TUTTO E METTERE SOLO request(ApplData.sonarState);
 	}
 	
 	protected void elabAnswer(IApplMessage msg) {

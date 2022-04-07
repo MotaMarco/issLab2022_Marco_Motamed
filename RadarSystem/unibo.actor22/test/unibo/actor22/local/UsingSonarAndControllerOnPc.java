@@ -16,11 +16,11 @@ import unibo.actor22comm.utils.CommUtils;
  * Sistema che usa led e controller come attori locali
  */
  
-public class UsingLedAndControllerOnPc {
+public class UsingSonarAndControllerOnPc {
    
 
 	public void doJob() {
-		ColorsOut.outappl("ControllerUsingLedOnPc | Start", ColorsOut.BLUE);
+		ColorsOut.outappl("ControllerUsingSonarOnPc | Start", ColorsOut.BLUE);
 		configure();
 		CommUtils.aboutThreads("Before execute - ");
 		//CommUtils.waitTheUser();
@@ -35,7 +35,8 @@ public class UsingLedAndControllerOnPc {
 		DomainSystemConfig.tracing      = false;					
 		CommSystemConfig.tracing        = false;
 
-		new LedActor(ApplData.ledName);
+		//new LedActor(ApplData.ledName);
+		new SonarActor(ApplData.sonarName);
 		new ControllerActor( ApplData.controllerName );
 		
 		//Creo altri Led per verificare che il numero di thread non aumenta
@@ -60,7 +61,7 @@ public class UsingLedAndControllerOnPc {
 
 	public static void main( String[] args) {
 		CommUtils.aboutThreads("Before start - ");
-		new UsingLedAndControllerOnPc().doJob();
+		new UsingSonarAndControllerOnPc().doJob();
 		CommUtils.aboutThreads("Before end - ");
 	}
 

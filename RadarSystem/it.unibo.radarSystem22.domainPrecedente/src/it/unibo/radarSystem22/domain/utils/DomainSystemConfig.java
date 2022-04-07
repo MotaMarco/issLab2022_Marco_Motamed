@@ -3,9 +3,6 @@ package it.unibo.radarSystem22.domain.utils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
@@ -37,13 +34,14 @@ public class DomainSystemConfig {
 			if(  fis == null ) {
  				 fis = new FileInputStream(new File(resourceName));
 			}
-//	        JSONTokener tokener = new JSONTokener(fis);
-			Reader reader       = new InputStreamReader(fis);
-			JSONTokener tokener = new JSONTokener(reader);      
+	        JSONTokener tokener = new JSONTokener(fis);
 	        JSONObject object   = new JSONObject(tokener);
 	 		
 	        simulation          = object.getBoolean("simulation");
-	        webCam           = object.getBoolean("webCam");	        
+	        
+	        
+	        webCam           = object.getBoolean("webCam");
+	        
 	        sonarObservable  = object.getBoolean("sonarObservable");	
 	        sonarDelay       = object.getInt("sonarDelay");	
 	        sonarDistanceMax = object.getInt("sonarDistanceMax");	

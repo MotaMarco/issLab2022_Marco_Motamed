@@ -7,6 +7,8 @@ import unibo.actor22comm.ProtocolType;
 import unibo.actor22comm.utils.ColorsOut;
 
 public class ApplData {
+	public static final String sonarName	  = "sonar";
+	
 	public static final String ledName        = "led";
 	public static final String controllerName = "controller";
 	public static final String observerName   = "observer";
@@ -14,7 +16,10 @@ public class ApplData {
 	public static final String comdLedon   = "turnOn";
 	public static final String comdLedoff  = "turnOff";
 	public static final String reqLedState = "getState";
-
+	
+	public static final String reqSonarDistance="getDistance";
+	 
+	//comuni per led e sonar
 	public static final String cmdActivate  = "activate";
 	public static final String cmdDectivate = "deactivate";
 
@@ -29,6 +34,9 @@ public class ApplData {
 	public static final  IApplMessage activateCrtl = buildDispatch("main", "cmd", cmdActivate, controllerName);
 	
 	public static final  IApplMessage endWorkEvent = buildEvent(controllerName, evEndWork, evEndWork );
+	
+	//sonar
+	public static final IApplMessage stateSonar   = buildRequest(controllerName, "req", reqSonarDistance,  sonarName);
 	
 	
 //String MSGID, String MSGTYPE, String SENDER, String RECEIVER, String CONTENT, String SEQNUM

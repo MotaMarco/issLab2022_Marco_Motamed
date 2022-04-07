@@ -242,12 +242,17 @@ La transizione ad un Sonar osservabile prospettata in Il pattern observer può e
          un maggiore disaccoppiamento tra i componenti. Gli Observer si registrano al Brocker tramite una subscribe. In questo caso è il Broker ad avere la lista degli Observer registrati. Il SonarObserver comunica al broker un nuovo valore significativo(da lui prodotto) tramite una publish e successivamente il broker invierà questo valore agli Observer registrati tramite il metodo update  </li>
 UPDATE LEZIONE 05/04/2022
 <ul>    
-    <li>Modo1 Comunicazione diretta: L'entità DistanceMesuared è un Observable e comunica direttamente con le entità Observer. Gli Observer si registrano all'Observable tramite i metodi addObserver() e removeObserver() dell'entità Observable. Il sonar tramite un metodo setVal del Observable 
-        setterà i nuovi valori registrati indicati con una IDistance.L'Observable avrà una Lista contente l'insieme di Observer registrati e modificherà,solo se i valori registrati sono significativi, le IDistance degli Observer tramite un metodo update(), presente neglio Observer.
-        L'invio di questi valori avviene tramite un metodo update. </li>
+    <li>Modo1 Sonar Observable: L'entità SonarObservable è un Observable e comunica direttamente con le entità Observer. 
+        Gli Observer si registrano al SonarObservable tramite i suoi metodi addObserver() e removeObserver(). 
+        Il SonarObservable presenta la lista degli Observer registrati ed invia a questi ultimi i valori registrati solo se si verificano 
+        cambiamenti significativi.
+        I cambiamenti avvengono chiamando i metodi update dell'Observer . </li>
 
-    <li>Modo2 Comunicazione mediata: Viene utilizzato un componente mediatore chiamato broker che si interpone tra L'Observable e gli Observer permettendo una 
-         un maggiore disaccoppiamento tra i componenti. Gli Observer si registrano al Brocker tramite i metodi addObserver() e removeObserver(), difatti, è il Broker ad avere la lista degli Observer registrati. L'Observable e quindi l'entità DistanceMesuared comunica al broker un nuovo IDistance significativo tramite una publish e successivamente il broker invierà questo valore agli Observer registrati tramite il metodo update()  </li>
+    <li>Modo2 DistanceMeasured Observable: L'entità DistanceMesuared è un Observable e comunica direttamente con le entità Observer. 
+        Gli Observer si registrano all'Observable tramite i metodi addObserver() e removeObserver() dell'entità Observable. Il sonar tramite un metodo setVal del Observable 
+        setterà i nuovi valori registrati indicati con una IDistance.L'Observable avrà una Lista contente l'insieme di Observer registrati e 
+        modificherà,solo se i valori registrati sono significativi, le IDistance degli Observer tramite un metodo update(), presente neglio Observer.
+        L'invio di questi valori agli Observer avviene tramite il metodo update </li>
 
 </div>
 

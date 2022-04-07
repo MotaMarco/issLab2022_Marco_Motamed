@@ -10,7 +10,6 @@ import java.awt.event.WindowListener;
 
 import it.unibo.radarSystem22.domain.interfaces.ILed;
 import it.unibo.radarSystem22.domain.utils.BasicUtils;
-import it.unibo.radarSystem22.domain.utils.ColorsOut;
 
 
 public class LedMockWithGui extends LedMock {  
@@ -56,12 +55,6 @@ private final Dimension sizeOff = new Dimension(30,30);
 		p.validate();
 		//p.revalidate();
 	}
-	
-	@Override //LedMock
-	protected void showState(){
-		 //Does nothing, since there is a GUI
-	}
-
 	
 //
 	public static Frame initFrame(int dx, int dy){

@@ -12,7 +12,7 @@ import it.unibo.radarSystem22.domain.utils.DomainSystemConfig;
 public class DeviceFactory {
 
 	public static ILed createLed() {
-		ColorsOut.out("DeviceFactory | createLed simulated="+DomainSystemConfig.simulation, ColorsOut.GREEN);
+		//Colors.out("DeviceFactory | createLed simulated="+RadarSystemConfig.simulation);
 		if( DomainSystemConfig.simulation)  {
 			return LedModel.createLedMock();
 		}else {
@@ -20,14 +20,13 @@ public class DeviceFactory {
 		}
 	}
 	public static ISonar createSonar(boolean observable) {
-		ColorsOut.out("DeviceFactory | createSonar simulated="+DomainSystemConfig.simulation, ColorsOut.GREEN);
 //		if( observable ) return createSonarObservable();
 //		else 
 			return createSonar();
 	}
 
 	public static ISonar createSonar() {
-		//Colors.out("DeviceFactory | createSonar simulated="+DomainSystemConfig.simulation);
+		//Colors.out("DeviceFactory | createSonar simulated="+RadarSystemConfig.simulation);
 		if( DomainSystemConfig.simulation)  {
 			return SonarModel.createSonarMock();
 		}else { 
