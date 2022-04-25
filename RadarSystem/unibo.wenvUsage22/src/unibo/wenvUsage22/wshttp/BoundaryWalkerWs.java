@@ -1,5 +1,5 @@
 /*
-ClientUsingHttp.java
+ClientUsingWs.java
 */
 package unibo.wenvUsage22.wshttp;
 import unibo.actor22comm.interfaces.Interaction2021;
