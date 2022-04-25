@@ -12,7 +12,7 @@ public class EventObserver extends QakActor22{
 
 	@Override
 	protected void handleMsg(IApplMessage msg) {
-		ColorsOut.outappl( getName()  + " | handleMsg " + msg, ColorsOut.CYAN);		
+		ColorsOut.outappl( getName()  + " | handleMsg " + msg, ColorsOut.RED);		
 	}
 
 }
