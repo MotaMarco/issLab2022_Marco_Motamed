@@ -1,0 +1,69 @@
+unibo/actor22comm/udp/UdpClientSupport.java
+ unibo.actor22comm.udp.UdpClientSupport
+unibo/actor22comm/interfaces/IApplInterpreter.java
+ unibo.actor22comm.interfaces.IApplInterpreter
+unibo/actor22comm/utils/CommSystemConfig.java
+ unibo.actor22comm.utils.CommSystemConfig
+unibo/actor22/annotations/ActorRemote.java
+ unibo.actor22.annotations.ActorRemote
+unibo/actor22comm/udp/UdpConnection.java
+ unibo.actor22comm.udp.UdpConnection
+unibo/actor22comm/utils/ColorsOut.java
+ unibo.actor22comm.utils.ColorsOut
+unibo/actor22comm/udp/UdpApplMessageHandler.java
+ unibo.actor22comm.udp.UdpApplMessageHandler
+unibo/actor22comm/udp/UdpEndpoint.java
+ unibo.actor22comm.udp.UdpEndpoint
+unibo/actor22comm/interfaces/IContext.java
+ unibo.actor22comm.interfaces.IContext
+unibo/actor22comm/interfaces/ActionFun.java
+ unibo.actor22comm.interfaces.ActionFun
+unibo/actor22comm/interfaces/IContextMsgHandler.java
+ unibo.actor22comm.interfaces.IContextMsgHandler
+unibo/actor22/annotations/ActorLocal.java
+ unibo.actor22.annotations.ActorLocal
+unibo/actor22comm/udp/UdpServer.java
+ unibo.actor22comm.udp.UdpServer
+unibo/actor22comm/ActorForReply.java
+ unibo.actor22comm.ActorForReply
+unibo/actor22comm/tcp/TcpConnection.java
+ unibo.actor22comm.tcp.TcpConnection
+unibo/actor22comm/context/EnablerContextForActors.java
+ unibo.actor22comm.context.EnablerContextForActors
+ unibo.actor22comm.context.EnablerContextForActors$1
+unibo/actor22/Qak22Context.java
+ unibo.actor22.Qak22Context
+unibo/actor22comm/udp/UdpServerConnection.java
+ unibo.actor22comm.udp.UdpServerConnection
+unibo/actor22comm/utils/CommUtils.java
+ unibo.actor22comm.utils.CommUtils
+unibo/actor22comm/context/ContextMsgHandler.java
+ unibo.actor22comm.context.ContextMsgHandler
+unibo/actor22comm/interfaces/IApplMsgHandler.java
+ unibo.actor22comm.interfaces.IApplMsgHandler
+unibo/actor22comm/tcp/TcpClientSupport.java
+ unibo.actor22comm.tcp.TcpClientSupport
+unibo/actor22comm/tcp/TcpApplMessageHandler.java
+ unibo.actor22comm.tcp.TcpApplMessageHandler
+unibo/actor22comm/ApplMsgHandler.java
+ unibo.actor22comm.ApplMsgHandler
+unibo/actor22comm/ProtocolType.java
+ unibo.actor22comm.ProtocolType
+unibo/actor22comm/ProtocolInfo.java
+ unibo.actor22comm.ProtocolInfo
+unibo/actor22comm/proxy/ProxyAsClient.java
+ unibo.actor22comm.proxy.ProxyAsClient
+ unibo.actor22comm.proxy.ProxyAsClient$1
+ unibo.actor22comm.proxy.ProxyAsClient$2
+unibo/actor22comm/tcp/TcpServer.java
+ unibo.actor22comm.tcp.TcpServer
+unibo/actor22/Qak22Util.java
+ unibo.actor22.Qak22Util
+unibo/actor22comm/events/EventMsgHandler.java
+ unibo.actor22comm.events.EventMsgHandler
+unibo/actor22/QakActor22.java
+ unibo.actor22.QakActor22
+unibo/actor22/annotations/ActorLocalInfo.java
+ unibo.actor22.annotations.ActorLocalInfo
+unibo/actor22comm/interfaces/Interaction2021.java
+ unibo.actor22comm.interfaces.Interaction2021

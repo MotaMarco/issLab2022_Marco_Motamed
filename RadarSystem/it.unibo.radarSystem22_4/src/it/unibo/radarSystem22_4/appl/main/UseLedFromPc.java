@@ -27,7 +27,7 @@ public class UseLedFromPc implements IApplication{
 	public void setup( String domainConfig, String systemConfig )  {
 		ColorsOut.outappl(" === " + getName() + " ===", ColorsOut.MAGENTA);
 		RadarSystemConfig.DLIMIT           = 80;
-		RadarSystemConfig.raspAddr         = "192.168.196.70";
+		RadarSystemConfig.raspAddr         = "localhost";
 		RadarSystemConfig.ctxServerPort    = 8756;
 		CommSystemConfig.protcolType = ProtocolType.tcp;
 	}
@@ -62,7 +62,7 @@ public class UseLedFromPc implements IApplication{
 	}	
 	
 	public static void main( String[] args) throws Exception {
-		new UseLedFromPc().doJob("DomainSystemConfig.json","RadarSystemConfig.json");
+		new UseLedFromPc().doJob(null,null);
  	}
 	
 }

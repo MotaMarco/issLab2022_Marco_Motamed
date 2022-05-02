@@ -49,7 +49,7 @@ public class RadarSysSprint2aDevicesOnRaspMain implements IApplication{
 	    	DomainSystemConfig.testing     = false;			
 	    	DomainSystemConfig.tracing     = false;			
 			DomainSystemConfig.sonarDelay  = 200;
-	    	DomainSystemConfig.ledGui      = false;		//se siamo su PC true	
+	    	DomainSystemConfig.ledGui      = true;		//se siamo su PC	
 	
 			RadarSystemConfig.tracing           = false;		
 			RadarSystemConfig.RadarGuiRemote    = true;		
@@ -93,6 +93,6 @@ public class RadarSysSprint2aDevicesOnRaspMain implements IApplication{
 
 	public static void main( String[] args) throws Exception {
 		BasicUtils.aboutThreads("At INIT with NO CONFIG files| ");
-		new RadarSysSprint2aDevicesOnRaspMain().doJob("DomainSystemConfig.json","RadarSystemConfig.json");
+		new RadarSysSprint2aDevicesOnRaspMain().doJob(null,null);
   	}
 }

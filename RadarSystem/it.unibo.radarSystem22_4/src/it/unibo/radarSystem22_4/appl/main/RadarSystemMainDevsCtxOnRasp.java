@@ -64,7 +64,6 @@ public class RadarSystemMainDevsCtxOnRasp implements IApplication{
  	   //contextServer  = new TcpContextServer("TcpCtxServer",RadarSystemConfig.ctxServerPort); 	   
 	   contextServer = new EnablerContext("ctx",""+RadarSystemConfig.ctxServerPort,
  			                  RadarSystemConfig.protcolType, new ContextMsgHandler("ctxH"));
-	   System.out.println("Protocollo usato "+RadarSystemConfig.protcolType);
 		//Registrazione dei componenti presso il contesto
  	   IApplMsgHandler sonarHandler = SonarApplHandler.create("sonarH",sonar); 
 	   IApplMsgHandler ledHandler   = LedApplHandler.create("ledH",led);		  
@@ -78,7 +77,7 @@ public class RadarSystemMainDevsCtxOnRasp implements IApplication{
 	
 	public static void main( String[] args) throws Exception {
 		//ColorsOut.out("Please set RadarSystemConfig.pcHostAddr in RadarSystemConfig.json");
-		new RadarSystemMainDevsCtxOnRasp().doJob("DomainSystemConfig.json","RadarSystemConfig.json");
+		new RadarSystemMainDevsCtxOnRasp().doJob(null,null);
  	}
 
 }

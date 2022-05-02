@@ -23,7 +23,6 @@ public class RadarSystemConfig {
 //Aggiunte dello SPRINT2a e 3
 	public static int ledPort             = 8010;
 	public static int sonarPort           = 8015;
-	//CAMBIARE QUI TCP e UDP
 	public static ProtocolType protcolType= ProtocolType.tcp;
 	
 	public static void setTheConfiguration(  ) {
@@ -57,7 +56,6 @@ public class RadarSystemConfig {
 		        case "tcp"  : protcolType = ProtocolType.tcp; break;
 		        case "coap" : protcolType = ProtocolType.coap; break;
 		        case "mqtt" : protcolType = ProtocolType.mqtt; break;
-		        case "udp"  : protcolType = ProtocolType.udp; break;
 	        }	        
 	        
 		} catch (FileNotFoundException e) {

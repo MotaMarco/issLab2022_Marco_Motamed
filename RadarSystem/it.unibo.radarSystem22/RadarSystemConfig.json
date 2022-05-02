@@ -5,9 +5,8 @@
 "testing"          : "false",
 
 "hostAddr"         : "localhost",
-"raspAddr"         : "192.168.196.70",
+"raspAddr"         : "localhost",
 "serverPort"       : "8023",
 "ledPort"          : "8010",
-"sonarPort"        : "8015",
-"protocolType"      : "udp"
+"sonarPort"        : "8015"
 }

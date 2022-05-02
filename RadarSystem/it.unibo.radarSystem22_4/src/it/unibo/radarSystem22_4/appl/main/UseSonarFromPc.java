@@ -29,13 +29,11 @@ public class UseSonarFromPc implements IApplication{
 		ColorsOut.outappl(" === " + getName() + " ===", ColorsOut.MAGENTA);
 		RadarSystemConfig.DLIMIT           = 80;
 		RadarSystemConfig.ctxServerPort    = 8756;
-		RadarSystemConfig.raspAddr         = "192.168.196.70";
 		CommSystemConfig.protcolType = ProtocolType.tcp;
 	}
 	
 	protected void configure() {		
 		String host           = RadarSystemConfig.raspAddr;
-		
 		ProtocolType protocol = CommSystemConfig.protcolType;
 		String ctxport        = ""+RadarSystemConfig.ctxServerPort;
 		sonar    		      = new SonarProxy("sonarPxy", host, ctxport, protocol );
@@ -64,7 +62,7 @@ public class UseSonarFromPc implements IApplication{
 	}	
 	
 	public static void main( String[] args) throws Exception {
-		new UseSonarFromPc().doJob("DomainSystemConfig.json","RadarSystemConfig.json");
+		new UseSonarFromPc().doJob(null,null);
  	}
 	
 }

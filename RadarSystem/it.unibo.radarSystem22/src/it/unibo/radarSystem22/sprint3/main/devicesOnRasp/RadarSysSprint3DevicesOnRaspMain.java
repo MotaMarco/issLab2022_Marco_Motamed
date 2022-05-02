@@ -59,7 +59,6 @@ public class RadarSysSprint3DevicesOnRaspMain implements IApplication{
  
 	}
 	protected void configure() {		
-		//cambiare
 	   ProtocolType protocol = RadarSystemConfig.protcolType;
 	   led                   = DeviceFactory.createLed();
  	   IApplMsgHandler ledh  = LedApplHandler.create("ledh", led);
@@ -85,6 +84,6 @@ public class RadarSysSprint3DevicesOnRaspMain implements IApplication{
 
 	public static void main( String[] args) throws Exception {
 		BasicUtils.aboutThreads("At INIT with NO CONFIG files| ");
-		new RadarSysSprint3DevicesOnRaspMain().doJob("DomainSystemConfig.json","RadarSystemConfig.json");
+		new RadarSysSprint3DevicesOnRaspMain().doJob(null,null);
   	}
 }

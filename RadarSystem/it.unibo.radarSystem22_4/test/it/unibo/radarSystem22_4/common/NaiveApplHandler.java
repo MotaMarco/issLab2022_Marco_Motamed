@@ -8,7 +8,7 @@ import it.unibo.radarSystem22_4.comm.utils.ColorsOut;
 public class NaiveApplHandler extends ApplMsgHandler {
 
 	public NaiveApplHandler(String name) {
-		super(name+"");
+		super(name);
 	}
  
 
